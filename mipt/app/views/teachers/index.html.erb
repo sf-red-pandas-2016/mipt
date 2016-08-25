@@ -1,0 +1,7 @@
+<h2 class="title">MIPT Teachers</h2>
+
+<ul>
+  <% @teachers.each do |teacher| %>
+    <li><%= teacher.full_name %></li>
+  <%end%>
+</ul>
