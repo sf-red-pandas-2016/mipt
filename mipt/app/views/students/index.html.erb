@@ -1,6 +1,6 @@
 <h2 class='title'>Students of MIPT</h2>
 
-<ul>a
+<ul>
 <% @students.each do |student| %>
   <li><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
   <% if student.teacher %>
