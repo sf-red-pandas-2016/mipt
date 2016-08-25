@@ -3,17 +3,45 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
+
 body {
-  background-color: #843D8F;
+  background: url(purple-cheetah.png);
+  background-size: cover 100% 100%;
+
 }
-home {
-  vertical-align: center;
-  font-family: 'Baloo Paaji', cursive;
+.home {
+  display: flex;
+  justify-content: center;
+  font-family: 'Baloo Paaji';
+  color: #ecf0f1;
 }
-item {
+.item {
   vertical-align: center;
   align-self: center;
+  width: 30%;
 }
+
+a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #bdc3c7;
+  border: 3px solid #ecf0f1;
+  border-radius: 40px;
+  width: 250px;
+  height: 150px;
+  margin-bottom: 10px;
+  justify-content: center;
+  font-size: 50px;
+  font-family: 'Baloo Paaji';
+  color: #843D8F;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
