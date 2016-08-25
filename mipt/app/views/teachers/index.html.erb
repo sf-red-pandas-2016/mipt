@@ -2,6 +2,7 @@
 
 <ul>
   <% @teachers.each do |teacher| %>
-    <li><%= link_to teacher.full_name,  teachers_path %></li>
+    <!--  need teacher.html.erb template -->
+    <li><%= link_to teacher.full_name,  teacher_path(teacher) %></li>
   <%end%>
 </ul>
