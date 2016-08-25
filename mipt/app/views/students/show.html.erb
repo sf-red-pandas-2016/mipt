@@ -1,1 +1,17 @@
-<h2 class='title'><%= @student.first_name %></h2>
+<h2 class='title'><%= @student.first_name + " " + @student.last_name %>'s Profile</h2>
+
+<ul>
+  <li><label>Grade level: </label><%= @student.grade_level %></li>
+  <li>Gender: <%= @student.gender %> </li>
+  <li>GPA: <%= @student.gpa %></li>
+  <li>Number of Detentions: <%= @student.number_of_detentions %></li>
+  <li>Current teacher: <%= link_to  "#{@student.teacher.full_name}", teacher_path(@student.teacher) %></li>
+  <li>Shirt size: <%= @student.shirt_size %></li>
+  <li>Email: <%= @student.email %></li>
+  <li>Interests: <%= @student.interests %></li>
+</ul>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Delete', student_path(@student),
+                      method: :delete,
+                      data: { confirm: "Are you sure you want to delete #{@student.first_name} #{@student.last_name}?" } %>

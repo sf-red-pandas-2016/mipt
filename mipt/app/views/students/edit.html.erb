@@ -1,0 +1,74 @@
+<div>
+  <h3 class="header">Edit <%= @student.first_name + " " + @student.last_name %>'s Profile</h3>
+  <%= form_for @student do |f| %>
+
+    <% if @student.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@student.errors.count, "error") %> prohibited
+          this student from being saved:
+        </h2>
+        <ul>
+          <% @student.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label 'First Name: ' %>
+      <%= f.text_field :first_name %>
+    </p>
+
+    <p>
+      <%= f.label 'Last Name: ' %>
+      <%= f.text_field :last_name %>
+    </p>
+
+    <p>
+      <%= f.label 'Grade level: ' %>
+      <%= f.text_field :grade_level %>
+    </p>
+
+    <p>
+      <%= f.label 'Gender: ' %>
+      <%= f.text_field :gender %>
+    </p>
+
+    <p>
+      <%= f.label 'GPA: ' %>
+      <%= f.text_field :gpa %>
+    </p>
+
+    <p>
+      <%= f.label 'Number of detentions: ' %>
+      <%= f.text_field :number_of_detentions %>
+    </p>
+
+    <p>
+      <%= f.label 'Current teacher: ' %>
+      <%= link_to "#{@student.teacher.full_name}", teacher_path(@student.teacher) %>
+    </p>
+
+    <p>
+      <%= f.label 'Shirt size: ' %>
+      <%= f.text_field :shirt_size %>
+    </p>
+
+    <p>
+      <%= f.label 'Email: ' %>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <%= f.label 'Interests: ' %><br>
+      <%= f.text_area :interests %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>
+</div>
