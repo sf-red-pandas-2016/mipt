@@ -1,7 +1,8 @@
+
 students = []
 
 File.foreach("MiPT_student_roster.csv") do |line|
-	student_row = line.split(",")
+	student_row = line.split(", ")
 	students << student_row
 end
 
@@ -17,7 +18,7 @@ end
 
 students.each do |row|
 	#if student already exists, do nothing
-	if Student.find_by(first_name: student[0], last_name: student[1])
+	if Student.find_by(first_name: row[0], last_name: row[1])
 	#if doesn't exist, create student with corre
 	else
 		teacher = Teacher.find_by(full_name: row[6])
@@ -29,6 +30,6 @@ students.each do |row|
 			gpa: row[4].to_f,
 			number_of_detentions: row[5].to_i,
 			teacher_id: teacher.id,
-			shirt_size: row[7])
+			shirt_size: row[7].chomp)
 	end
 end
