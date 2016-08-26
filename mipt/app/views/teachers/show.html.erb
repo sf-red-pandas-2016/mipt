@@ -1,0 +1,18 @@
+<h2>Teacher <%= @teacher.full_name %>'s Courses</h2>
+<ul>
+  <% @teacher.courses.each do |course| %>
+    <% if course.title == nil %>
+      <% course.title = 'Untitled' %>
+    <% end %>
+
+    <% if course.description == nil %>
+      <% course.description ='No description' %>
+    <% end %>
+
+    <li><%= link_to "#{course.title}", course_path(course) %> | <%= link_to "Edit", edit_course_path(course) %><br>
+      <em>Description: <%= course.description %></em><br>
+     </li>
+  <% end %>
+</ul>
+
+<%= button_to "Create Course", new_course_path, method: "get" %>

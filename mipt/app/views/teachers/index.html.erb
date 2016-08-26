@@ -1,0 +1,8 @@
+<h2 class="title">MIPT Teachers</h2>
+
+<ul>
+  <% @teachers.each do |teacher| %>
+    <!--  need teacher.html.erb template -->
+    <li><%= link_to teacher.full_name,  teacher_path(teacher) %></li>
+  <%end%>
+</ul>
