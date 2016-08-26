@@ -22,4 +22,16 @@ Rails.application.routes.draw do
   patch '/courses/:course_id/students/:student_id', to: 'courses#students_update'
 
   delete '/courses/:course_id/students/:student_id', to: 'courses#students_destroy'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
 end

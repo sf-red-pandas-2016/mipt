@@ -1,4 +1,7 @@
 class CoursesController < ApplicationController
+    
+  before_filter :authorize
+
   def index
     @courses = Course.all.sort_by &:title
   end

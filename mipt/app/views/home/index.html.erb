@@ -1,4 +1,9 @@
 <div class="container">
+
+<% if !current_user %>
+	<%= link_to 'Register', signup_path %>
+<% end %>
+
   <div>
   <%= link_to 'ENTER', dashboard_index_path, id: "enter" %>
   </div>
