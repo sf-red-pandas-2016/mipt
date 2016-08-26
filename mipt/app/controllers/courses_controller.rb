@@ -19,14 +19,19 @@ class CoursesController < ApplicationController
     if @student.save
       redirect_to "/courses/#{params[:course_id]}"
     else
-      render 'edit'
+      p @student.errors.full_messages
+      # add else to render later
     end
   end
 
   def students_destroy
     student = Student.find(params[:student_id])
+    p "8" * 30
+    p student
     student.course_id = nil
     student.save
+    p "*" * 30
+    p student
     redirect_to "/courses/#{params[:course_id]}"
   end
 
@@ -48,6 +53,8 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     @course_students = @course.students
+    p "X" * 45
+    p @course_students
   end
 
   def destroy
