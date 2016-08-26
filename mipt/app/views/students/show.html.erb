@@ -1,16 +1,16 @@
 <h2 class='title'><%= @student.first_name + " " + @student.last_name %>'s Profile</h2>
 
 <ul>
-  <li><label>Grade level: </label><%= @student.grade_level %></li>
-  <li>Gender: <%= @student.gender %> </li>
-  <li>GPA: <%= @student.gpa %></li>
-  <li>Number of Detentions: <%= @student.number_of_detentions %></li>
+  <li><label>Grade level: </label> <%= @student.grade_level %></li>
+  <li><label>Gender:</label> <%= @student.gender %> </li>
+  <li><label>GPA:</label> <%= @student.gpa %></li>
+  <li><label>Number of Detentions:</label> <%= @student.number_of_detentions %></li>
   <% if @student.teacher%>
-  <li>Current teacher: <%= link_to  "#{@student.teacher.full_name}", teacher_path(@student.teacher) %></li>
+  <li><label>Current teacher:</label> <%= link_to  "#{@student.teacher.full_name}", teacher_path(@student.teacher) %></li>
   <% end %>
-  <li>Shirt size: <%= @student.shirt_size %></li>
-  <li>Email: <%= @student.email %></li>
-  <li>Interests: <%= @student.interests %></li>
+  <li><label>Shirt size:</label> <%= @student.shirt_size %></li>
+  <li><label>Email:</label> <%= @student.email %></li>
+  <li><label>Interests:</label> <%= @student.interests %></li>
 </ul>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
