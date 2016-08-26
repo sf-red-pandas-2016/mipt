@@ -13,7 +13,8 @@ students.each do |row|
 	#if teacher doesn't already exist, create new teacher given the 'assigned_teacher' column in student data
 	if Teacher.find_by(full_name: row[6])
 	else
-		Teacher.create(full_name: row[6])
+		teacher = Teacher.create(full_name: row[6])
+		Course.create(teacher_id: teacher.id)
 	end
 end
 
@@ -31,7 +32,7 @@ students.each do |row|
 	 		header[3].to_sym =>  row[3],
 	 		header[4].downcase.to_sym =>  row[4].to_f,
 	 		header[5].to_sym =>  row[5].to_i,
-	 		teacher_id:  teacher.id,
+	 		course_id: teacher.courses.first.id,
 	 		header[7].chomp.to_sym => row[7].chomp
 			# first_name: row[0],
 			# last_name: row[1],
