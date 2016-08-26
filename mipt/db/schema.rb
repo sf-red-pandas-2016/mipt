@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160825174932) do
     t.string   "gender"
     t.float    "gpa"
     t.integer  "number_of_detentions"
-    t.integer  "teacher_id"
+    t.integer  "course_id"
     t.string   "shirt_size"
     t.string   "email"
     t.text     "interests"
