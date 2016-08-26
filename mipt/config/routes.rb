@@ -4,19 +4,24 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :teachers do 
+  resources :students
+
+  resources :teachers do
   	resources :courses, only: [:new, :create]
   end
 
-  resources :teachers
-
-  resources :students
-
   resources :courses, except: [:new, :create]
 
-  resources :courses do
-    resources :students
-  end
+  #route to see all students and select 'add to course'
+  get '/courses/:course_id/students/add', to: 'courses#students_add'
+
+  #route to see all students currently enrolled in course
+  get '/courses/:course_id/students', to: 'courses#students_show'
+
+  #route after clicking 'add to course' change student's course_id
+  patch '/courses/:course_id/students/:student_id', to: 'courses#students_update'
+
+  delete '/courses/:course_id/students/:student_id', to: 'courses#students_destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
