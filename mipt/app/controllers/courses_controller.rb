@@ -3,6 +3,19 @@ class CoursesController < ApplicationController
     @courses = Course.all.sort_by &:title
   end
 
+  def students_add
+    @students = Student.all.sort_by &:last_name
+    @course = Course.find(params[:course_id])
+  end
+
+  def students_show
+    @students = Student.where(course_id: params[:course_id])
+  end
+
+  def students_update
+    @student
+  end
+
   def new
     @course = Course.new
     @teacher = Teacher.find(params[:teacher_id])
