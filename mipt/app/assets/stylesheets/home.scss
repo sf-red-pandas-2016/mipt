@@ -9,24 +9,22 @@
   align-items: center;
   width: 100%;
 }
-
 body {
-  background: url(purple-cheetah.png);
+  background: url(purple-cheetah.jpg);
   background-size: cover 100% 100%;
-
 }
 .home {
   display: flex;
   justify-content: center;
   font-family: 'Baloo Paaji';
-  color: #ecf0f1;
+  color: #000000;
+  font-size: 300%;
 }
 .item {
   vertical-align: center;
   align-self: center;
   width: 30%;
 }
-
 a {
   display: flex;
   align-items: center;
