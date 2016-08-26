@@ -1,3 +1,14 @@
 // Place all the styles related to the Index controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+  background: url(purple-cheetah.jpg);
+  background-size: cover 100% 100%;
+  font-family: 'Baloo Paaji';
+}
+
+h2 {
+  color: #FFFFFF;
+  font-size: 60px;
+}
