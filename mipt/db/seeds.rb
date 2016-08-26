@@ -15,7 +15,7 @@ students.each do |row|
 	if Teacher.find_by(full_name: row[6])
 	else
 		teacher = Teacher.create(full_name: row[6])
-		Course.create(teacher_id: teacher.id)
+		course = Course.create(teacher_id: teacher.id, title: 'Untitled', description: 'No description.')
 	end
 end
 
@@ -26,14 +26,17 @@ students.each do |row|
 	#if doesn't exist, create student with corre
 	else
 		teacher = Teacher.find_by(full_name: row[6])
+		if teacher.courses.first
+			id_course = teacher.courses.first.id
+		end
 		Student.create({
 			header[0].to_sym => row[0],
-			header[1].to_sym =>  row[1],
-	 		header[2].to_sym =>  row[2].to_i,
-	 		header[3].to_sym =>  row[3],
-	 		header[4].downcase.to_sym =>  row[4].to_f,
-	 		header[5].to_sym =>  row[5].to_i,
-	 		course_id: teacher.courses.first.id,
+			header[1].to_sym => row[1],
+	 		header[2].to_sym => row[2].to_i,
+	 		header[3].to_sym => row[3],
+	 		header[4].downcase.to_sym => row[4].to_f,
+	 		header[5].to_sym => row[5].to_i,
+	 		course_id: id_course,
 	 		header[7].chomp.to_sym => row[7].chomp
 			# first_name: row[0],
 			# last_name: row[1],
@@ -50,9 +53,9 @@ end
 # Seed course data
 
 	titles = [
-		"Intro to Puppetry", 
-		"Puppet Making", 
-		"Advanced Puppet Making", 
+		"Intro to Puppetry",
+		"Puppet Making",
+		"Advanced Puppet Making",
 		"Marionettes",
 		"Miming",
 		"The Art of Felt",
@@ -63,7 +66,7 @@ end
 	]
 
 	descriptions = [
-		"Learn how to puppet.", 
+		"Learn how to puppet.",
 		"Learn how to make a puppet.",
 		"Make a puppet like a boss",
 		"Play with strings and make your puppet dance",
@@ -76,10 +79,10 @@ end
 	]
 
 	i = 0
-	titles.each do 
+	titles.each do
 
 		r = Random.new
-		
+
 		Course.create(
 			title: titles[i],
 			description: descriptions[i],
@@ -87,14 +90,3 @@ end
 		)
 		i += 1
 	end
-
-
-
-
-
-
-
-
-
-
-
