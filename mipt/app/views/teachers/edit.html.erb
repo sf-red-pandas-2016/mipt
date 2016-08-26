@@ -1,0 +1,29 @@
+<div>
+  <h3 class="header">Edit <%= @teacher.full_name %>'s Profile</h3>
+  <%= form_for @teacher do |f| %>
+
+    <% if @teacher.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@teacher.errors.count, "error") %> prohibited
+          this teacher from being saved:
+        </h2>
+        <ul>
+          <% @teacher.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <p>
+      <%= f.label 'Full Name: ' %>
+      <%= f.text_field :full_name %>
+    </p>
+
+    <p>
+      <%= f.submit %>
+    </p>
+
+  <% end %>
+</div>

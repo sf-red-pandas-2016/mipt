@@ -15,5 +15,23 @@ class TeachersController < ApplicationController
     redirect_to teachers_path
   end
 
-  
+  def edit
+    @teacher = Teacher.find(params[:id])
+  end
+
+  def update
+    @teacher = Teacher.find(params[:id])
+
+    if @teacher.update(teacher_params)
+      redirect_to @teacher
+    else
+      render 'edit'
+    end
+  end
+
+  private
+    def teacher_params
+      params.require(:teacher).permit(:full_name)
+    end
+
 end
