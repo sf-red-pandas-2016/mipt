@@ -1,3 +1,4 @@
+require 'faker'
 
 students = []
 
@@ -76,10 +77,13 @@ end
 
 	i = 0
 	titles.each do 
+
+		r = Random.new
+		
 		Course.create(
 			title: titles[i],
-			description: descriptions[i],	
-			teacher_id: (Faker::Number.between(1, 401)).to_i
+			description: descriptions[i],
+			teacher_id: r.rand(1...400)
 		)
 		i += 1
 	end

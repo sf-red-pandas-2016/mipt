@@ -3,12 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-  background: url(purple-cheetah.jpg);
-  background-size: cover 100% 100%;
+  background: url(purple_red_curtains.jpg);
+  // background-size: cover 100% 100%;
+  background-position: center;
   font-family: 'Baloo Paaji';
+  background-attachment: fixed;
 }
 
-h2 {
+h2, h1 {
   color: #FFFFFF;
   font-size: 60px;
 }

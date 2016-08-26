@@ -6,11 +6,16 @@ h2.title {
   color: #FFFFFF;
 }
 
-a {
+a.link {
   color: #FFFFFF;
   border: 3px solid #FFFFFF;
   background: #000000;
   border-radius: 25px;
   text-decoration: none;
+  padding: 20px;
   margin: 5px 0 0 5px;
+}
+
+label {
+  color: #FFFFFF;
 }

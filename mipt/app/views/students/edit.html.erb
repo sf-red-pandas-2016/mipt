@@ -47,8 +47,10 @@
     </p>
 
     <p>
+    <% if @student.teacher %>
       <%= f.label 'Current teacher: ' %>
       <%= link_to "#{@student.teacher.full_name}", teacher_path(@student.teacher) %>
+    <% end %>
     </p>
 
     <p>
