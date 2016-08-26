@@ -18,6 +18,24 @@ class CoursesController < ApplicationController
   	end
   end
 
+  def show
+    @course = Course.find(params[:id])
+    @course_students = @course.students
+  end
+
+  def destroy
+    @course = Course.find(params[:id])
+
+    @course.students.each do |student|
+      student.course = nil
+      student.save
+    end
+
+    @course.destroy
+
+    redirect_to teachers_path
+  end
+
    private
     def course_params
       params.require(:course).permit(:title, :description, :teacher_id)
