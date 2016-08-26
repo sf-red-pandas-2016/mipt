@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get '/courses/:course_id/students', to: 'courses#students_show'
 
   #route after clicking 'add to course' change student's course_id
-  patch '/courses/:course_id/students', to: 'courses#students_update'
+  patch '/courses/:course_id/students/:student_id', to: 'courses#students_update'
 
+  delete '/courses/:course_id/students/:student_id', to: 'courses#students_destroy'
 end

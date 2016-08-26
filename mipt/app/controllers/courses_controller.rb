@@ -4,16 +4,30 @@ class CoursesController < ApplicationController
   end
 
   def students_add
-    @students = Student.all.sort_by &:last_name
     @course = Course.find(params[:course_id])
+    @students = Student.all.sort_by &:last_name
   end
 
   def students_show
+    @course = Course.find(params[:course_id])
     @students = Student.where(course_id: params[:course_id])
   end
 
   def students_update
-    @student
+    @student = Student.find(params[:student_id])
+    @student.course_id = params[:course_id]
+    if @student.save
+      redirect_to "/courses/#{params[:course_id]}"
+    else
+      render 'edit'
+    end
+  end
+
+  def students_destroy
+    student = Student.find(params[:student_id])
+    student.course_id = nil
+    student.save
+    redirect_to "/courses/#{params[:course_id]}"
   end
 
   def new
@@ -52,5 +66,9 @@ class CoursesController < ApplicationController
    private
     def course_params
       params.require(:course).permit(:title, :description, :teacher_id)
+    end
+
+    def student_params
+      params.require(:student).permit(:course_id)
     end
 end
