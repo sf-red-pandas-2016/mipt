@@ -1,3 +1,16 @@
 // Place all the styles related to the Teachers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h2.title {
+  color: #FFFFFF;
+}
+
+a {
+  color: #FFFFFF;
+  border: 3px solid #FFFFFF;
+  background: #000000;
+  border-radius: 25px;
+  text-decoration: none;
+  margin: 5px 0 0 5px;
+}
