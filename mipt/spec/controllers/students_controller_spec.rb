@@ -23,7 +23,8 @@ RSpec.describe StudentsController, :type => :controller do
   describe "GET #show" do
     it "responds with status code 200" do
       get :student, { id: student.id }
-      expect(response).to have_http_status 200
+      response.code.should eq("200")
+      # expect(response).to have_http_status 200
     end
 
     it "assigns the correct student as @student" do
