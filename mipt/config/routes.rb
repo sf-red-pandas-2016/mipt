@@ -11,9 +11,14 @@ Rails.application.routes.draw do
   #
   # get 'teachers/index'
 
+  resources :teachers do 
+  	resources :courses, only: [:new, :create]
+  end
+
   resources :teachers
+
   resources :students
-  resources :courses
+  resources :courses, except: [:new, :create]
 
   resources :courses do
     resources :students
