@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   resources :dashboard, only: [:index]
 
-  resources :teachers do 
+  resources :teachers do
   	resources :courses, only: [:new, :create]
   end
 
@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   resources :courses, except: [:new, :create]
 
   resources :courses do
-    resources :students
+    resources :students, controller: 'courses/students'
   end
 
 end
