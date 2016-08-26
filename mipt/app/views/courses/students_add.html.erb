@@ -1,0 +1,24 @@
+<div class="container">
+  <h1> Add Students to <%= @course.title %></h1>
+  <h3> Taught by: <%= @course.teacher.full_name %> </h3>
+
+  <ul>
+  <% @students.each do |student| %>
+
+    <li><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
+
+    <% if student.teacher %>
+      <em>Current teacher: <%= link_to "#{student.teacher.full_name}", teacher_path(student.teacher) %></em>
+    <% end %><br>
+
+    <% if student.course == @course %>
+      <%= button_to "Remove from Course", "/courses/#{@course.id}/students", method: "delete", class: 'button-class' %>
+    <% else %>
+      <%= button_to "Add to Course", "/courses/#{@course.id}/students/#{student.id}", method: "patch", class: 'button-class' %>
+    <% end %>
+    </li><br>
+
+  <% end %>
+  </ul>
+
+</div>

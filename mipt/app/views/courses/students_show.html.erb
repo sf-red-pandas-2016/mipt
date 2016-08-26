@@ -1,0 +1,11 @@
+<div class="container">
+  <h1>Students Enrolled in <%= @course.title %></h1>
+  <h3> Taught by: <%= @course.teacher.full_name %>
+
+  <ul>
+  <% @students.each do |student| %>
+    <li><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
+    </li><br>
+  <% end %>
+  </ul>
+</div>
