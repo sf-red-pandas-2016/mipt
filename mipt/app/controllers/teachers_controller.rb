@@ -1,5 +1,7 @@
 class TeachersController < ApplicationController
 
+  before_filter :authorize
+
   def index
     @teachers = Teacher.all.sort_by &:full_name
   end

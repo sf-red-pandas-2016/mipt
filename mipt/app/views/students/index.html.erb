@@ -2,9 +2,9 @@
 
 <ul>
 <% @students.each do |student| %>
-  <li><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
+  <li class="student_spacing"><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student), {class:"student_name"} %><br>
   <% if student.teacher %>
-    <em>Current teacher: <%= link_to "#{student.teacher.full_name}", teacher_path(student.teacher) %></em>
+    <em class="curr_teacher">Current teacher: <%= link_to "#{student.teacher.full_name}", teacher_path(student.teacher), {class:"teacher_name"} %></em>
   <% end %>
   </li><br>
 <% end %>

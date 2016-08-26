@@ -1,0 +1,29 @@
+<div class="container">
+  <h1>Students Enrolled in <%= @course.title %></h1>
+  <h3> Taught by: <%= @course.teacher.full_name %>
+
+  <table>
+    <tr>
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Grade Level</th>
+      <th>GPA</th>
+      <th>Email</th>
+      <th>Number of Detentions</th>
+      <th>Gender</th>
+      <th>Shirt Size</th>
+    </tr>
+  <% @students.each do |student| %>
+    <tr>
+      <td><%= link_to "#{student.last_name}", student_path(student) %></td>
+      <td><%= student.first_name %></td>
+      <td><%= student.grade_level %></td>
+      <td><%= student.gpa %></td>
+      <td><%= student.email %></td>
+      <td><%= student.number_of_detentions %></td>
+      <td><%= student.gender %></td>
+      <td><%= student.shirt_size %></td>
+    </tr>
+  <% end %>
+</table>
+</div>

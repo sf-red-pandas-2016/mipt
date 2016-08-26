@@ -3,6 +3,6 @@
 <ul>
   <% @teachers.each do |teacher| %>
     <!--  need teacher.html.erb template -->
-    <li><%= link_to teacher.full_name,  teacher_path(teacher) %></li>
+    <li class="teacher_spacing"><%= link_to teacher.full_name,  teacher_path(teacher), {class:"teacher"} %></li>
   <%end%>
 </ul>
