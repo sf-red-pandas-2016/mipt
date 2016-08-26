@@ -6,6 +6,20 @@ class CoursesController < ApplicationController
     @courses = Course.all.sort_by &:title
   end
 
+  def edit
+    @course = Course.find(params[:id])
+  end
+
+  def update
+    @course = Course.find(params[:id])
+
+    if @course.update(course_params)
+      redirect_to @course
+    else
+      render 'edit'
+    end
+  end
+
   def students_add
     @course = Course.find(params[:course_id])
     @students = Student.all.sort_by &:last_name

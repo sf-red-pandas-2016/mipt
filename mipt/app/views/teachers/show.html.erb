@@ -11,6 +11,7 @@
 
     <li><%= link_to "#{course.title}", course_path(course), {class:"course_detail"}%> | <%= link_to "Edit", edit_course_path(course), {class:"course_detail"} %><br>
       <em class="course_description">Description: <%= course.description %></em><br>
+
      </li>
   <% end %>
 </ul>
