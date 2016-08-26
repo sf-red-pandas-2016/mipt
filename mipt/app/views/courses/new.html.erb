@@ -1,0 +1,16 @@
+<h2 class="title">Create a Course</h2>
+
+<%= form_for :course, url: teacher_courses_path do |f| %>
+	<br>
+	<%= f.label :title %>
+	<%= f.text_field :title %>
+
+	<br>
+
+	<%= f.label :description %>
+	<%= f.text_area :description %>
+
+	<br>
+
+	<%= f.submit %>
+<% end %>
