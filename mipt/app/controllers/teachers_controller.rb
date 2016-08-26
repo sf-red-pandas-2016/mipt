@@ -1,7 +1,7 @@
 class TeachersController < ApplicationController
   
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.all.sort_by &:full_name
   end
 
   def show
