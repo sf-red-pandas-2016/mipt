@@ -9,7 +9,7 @@
       <% course.description ='No description' %>
     <% end %>
 
-    <li><%= link_to "#{course.title}", course_path(course) %> | <%= link_to "Edit", edit_course_path(course) %><br>
+    <li><%= link_to "#{course.title}", course_path(course) %><br>
       <em>Description: <%= course.description %></em><br>
      </li>
   <% end %>
