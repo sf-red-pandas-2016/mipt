@@ -5,7 +5,9 @@
   <li>Gender: <%= @student.gender %> </li>
   <li>GPA: <%= @student.gpa %></li>
   <li>Number of Detentions: <%= @student.number_of_detentions %></li>
+  <% if @student.teacher%>
   <li>Current teacher: <%= link_to  "#{@student.teacher.full_name}", teacher_path(@student.teacher) %></li>
+  <% end %>
   <li>Shirt size: <%= @student.shirt_size %></li>
   <li>Email: <%= @student.email %></li>
   <li>Interests: <%= @student.interests %></li>
