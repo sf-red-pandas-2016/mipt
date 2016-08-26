@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :teachers
 
   resources :students
-  resources :courses
+  resources :courses, except: [:new, :create]
 
   resources :courses do
     resources :students
