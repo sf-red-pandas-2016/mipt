@@ -8,5 +8,12 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
   end
 
+  def destroy
+    @teacher = Teacher.find(params[:id])
+    @teacher.destroy
+
+    redirect_to teachers_path
+  end
+
   
 end
