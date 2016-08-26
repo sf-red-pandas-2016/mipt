@@ -38,4 +38,32 @@ RSpec.describe TeachersController, :type => :controller do
 
   end
 
+  describe "PUT #update" do
+
+    before(:each) do
+      put :update, :id => teacher.id, teacher: {:full_name => "Sarah"}
+    end
+
+    it "edits the requested teacher" do
+      expect(teacher.reload.full_name).to eq("Sarah")
+    end
+
+  end
+
+  describe "DELETE #destroy" do
+    it "responds with status code 302" do
+      delete :destroy, {id: teacher.id }
+      expect(response).to have_http_status 302
+    end
+
+    it "destroys the requested teacher" do
+      expect { delete(:destroy, { id: teacher.id }) }.to change(Teacher, :count).by(-1)
+    end
+
+    it "redirects to the teachers list" do
+      delete :destroy, { id: teacher.id }
+      expect(response).to redirect_to teachers_url
+    end
+  end
+
 end

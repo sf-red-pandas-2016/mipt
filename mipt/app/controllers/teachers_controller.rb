@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  
+
   def index
     @teachers = Teacher.all.sort_by &:full_name
   end
@@ -21,7 +21,7 @@ class TeachersController < ApplicationController
 
   def update
     @teacher = Teacher.find(params[:id])
-
+    p teacher_params
     if @teacher.update(teacher_params)
       redirect_to @teacher
     else
