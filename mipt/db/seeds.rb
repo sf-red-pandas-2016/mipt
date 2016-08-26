@@ -45,3 +45,52 @@ students.each do |row|
 			})
 	end
 end
+
+# Seed course data
+
+	titles = [
+		"Intro to Puppetry", 
+		"Puppet Making", 
+		"Advanced Puppet Making", 
+		"Marionettes",
+		"Miming",
+		"The Art of Felt",
+		"Voice Throwing",
+		"Advanced Puppetry",
+		"Bert and Ernie, BFFs",
+		"Is Snuffalupagus Real?"
+	]
+
+	descriptions = [
+		"Learn how to puppet.", 
+		"Learn how to make a puppet.",
+		"Make a puppet like a boss",
+		"Play with strings and make your puppet dance",
+		"How to not talk",
+		"Play with soft things",
+		"Make your puppet talk",
+		"Puppet like a boss",
+		"How to be the best Ernie to your Bert",
+		"Search the applacians for the elusive Snuffalupagus"
+	]
+
+	i = 0
+	titles.each do 
+		Course.create(
+			title: titles[i],
+			description: descriptions[i],	
+			teacher_id: (Faker::Number.between(1, 401)).to_i
+		)
+		i += 1
+	end
+
+
+
+
+
+
+
+
+
+
+

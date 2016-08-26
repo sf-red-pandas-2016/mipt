@@ -1,2 +1,12 @@
-<h1>Courses#index</h1>
-<p>Find me in app/views/courses/index.html.erb</p>
+<h2 class="title">MIPT Courses</h2>
+
+<% @courses.each do |course| %>
+  <%= link_to "#{course.title}", course_path(course) %><br>
+  <% if course.description %>
+	<ul>
+    	<li><em>Description: <%= course.description %></em></li>
+	</ul>
+  <% end %>
+  <br>
+<% end %>
+
