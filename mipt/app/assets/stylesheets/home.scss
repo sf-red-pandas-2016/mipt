@@ -1,0 +1,42 @@
+// Place all the styles related to the Home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.home {
+  display: flex;
+  justify-content: center;
+  font-family: 'Baloo Paaji';
+  color: #000000;
+  font-size: 300%;
+}
+.item {
+  vertical-align: center;
+  align-self: center;
+  width: 30%;
+}
+a.enter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #bdc3c7;
+  border: 3px solid #ecf0f1;
+  border-radius: 40px;
+  width: 250px;
+  height: 150px;
+  margin-bottom: 10px;
+  justify-content: center;
+  font-size: 50px;
+  font-family: 'Baloo Paaji';
+  color: #843D8F;
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
