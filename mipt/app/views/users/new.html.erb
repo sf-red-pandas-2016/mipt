@@ -1,15 +1,15 @@
 <div class="container">
-
+  <center>
   <h1>Signup!</h1>
 
   <%= form_for :user, url: '/users' do |f| %>
 
-    Name: <%= f.text_field :name %>
-    Email: <%= f.text_field :email %>
-    Password: <%= f.password_field :password %>
-    Password Confirmation: <%= f.password_field :password_confirmation %>
+    Name: <%= f.text_field :name %><br><br>
+    Email: <%= f.text_field :email %><br><br>
+    Password: <%= f.password_field :password %><br><br>
+    Password Confirmation: <%= f.password_field :password_confirmation %><br><br>
     <%= f.submit "Submit" %>
 
   <% end %>
-
+  </center>
 </div>
