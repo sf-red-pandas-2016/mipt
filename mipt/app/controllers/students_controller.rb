@@ -1,10 +1,44 @@
+require 'csv'
+
 class StudentsController < ApplicationController
   
   before_filter :authorize
 
   def index
     @students = Student.all.sort_by &:last_name
-    # @students.sort_by! { |student| student.last_name }
+
+
+
+    CSV.open("#{Date.today}.csv", "wb") do |csv|
+      # Print headers to csv file
+      csv << [
+        "first_name",
+        "last_name",
+        "grade_level",
+        "gender",
+        "gpa",
+        "number_of_detentions",
+        "shirt_size"
+      ]
+
+      Student.all.each do |student|
+        course = Course.find(student.course_id)
+        csv << [
+          student.first_name,
+          student.last_name,
+          student.grade_level,
+          student.gender,
+          student.gpa,
+          student.number_of_detentions,
+          student.shirt_size,
+          course.id,
+          course.title
+        ]
+
+      end
+    end
+
+
   end
 
   def edit
