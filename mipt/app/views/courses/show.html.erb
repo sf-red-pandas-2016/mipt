@@ -2,22 +2,22 @@
   <h2 class='title'><%= @course.title %></h2>
 
   <ul>
-    <li><label>Description:</label> <%= @course.description %></li>
+    <li class="course"><label>Description:  </label> <%= @course.description %></li>
   </ul>
-                      
-  <%= link_to 'Edit', edit_course_path(@course) %> |
+
+  <%= link_to 'Edit', edit_course_path(@course), class:"course" %> |
   <%= link_to 'Delete', course_path(@course),
                         method: :delete,
-                        data: { confirm: "Are you sure you want to delete #{@course.title}?" } %>
+                        data: { confirm: "Are you sure you want to delete #{@course.title}?" },  class:"course" %>
 
-  <h3>Enrolled Students</h3>
+  <h3 class="student_list">Enrolled Students</h3>
   <ul>
   <% @course_students.each do |student| %>
-    <li><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
+    <li class="course"><%= link_to "#{student.last_name}, #{ student.first_name }", student_path(student) %><br>
     </li><br>
   <% end %>
   </ul>
 
-  <%= link_to 'Student Details', "/courses/#{@course.id}/students"%> |
-  <%= link_to 'Add/Remove Students', "/courses/#{@course.id}/students/add"%>
+    <%= link_to 'Student Details', "/courses/#{@course.id}/students"%> |
+    <%= link_to 'Add/Remove Students', "/courses/#{@course.id}/students/add"%>
 </div>
