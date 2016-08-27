@@ -2,14 +2,14 @@
 
   <h2 class="title">MIPT Courses</h2>
 
+
   <% @courses.each do |course| %>
-    <%= link_to "#{course.title}", course_path(course) %><br>
+    <%= link_to "#{course.title}", course_path(course), class:"course-name" %><br>
     <% if course.description %>
   	<ul>
-      	<li><em>Description: <%= course.description %></em></li>
+    	<li class="course-description"><em>Description: <%= course.description %></em></li>
   	</ul>
-    <% end %>
-    <br>
+  <% end %>
   <% end %>
 
 </div>
