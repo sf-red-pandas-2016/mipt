@@ -1,8 +1,12 @@
-<h2 class="title">MIPT Teachers</h2>
+<div class="container">
 
-<ul>
-  <% @teachers.each do |teacher| %>
-    <!--  need teacher.html.erb template -->
-    <li class="teacher_spacing"><%= link_to teacher.full_name,  teacher_path(teacher), {class:"teacher"} %></li>
-  <%end%>
-</ul>
+  <h2 class="title">MIPT Teachers</h2>
+
+  <ul>
+    <% @teachers.each do |teacher| %>
+      <!--  need teacher.html.erb template -->
+      <li class="teacher_spacing"><%= link_to teacher.full_name,  teacher_path(teacher), {class:"teacher"} %></li>
+    <%end%>
+  </ul>
+
+</div>

@@ -1,5 +1,5 @@
 <div class="container">
-  <h1> Add Students to <%= @course.title %></h1>
+  <h1> Add Students to <%= link_to "#{@course.title}", course_path(@course) %></h1>
   <h3> Taught by: <%= @course.teacher.full_name %> </h3>
 
   <ul>
@@ -12,7 +12,7 @@
     <% end %><br>
 
     <% if student.course == @course %>
-      <%= button_to "Remove from Course", "/courses/#{@course.id}/students/#{student.id}", method: "delete", class: 'button-class' %>
+      <!-- <%= button_to "Remove from Course", "/courses/#{@course.id}/students/#{student.id}/remove", method: "patch", class: 'button-class' %> -->
     <% else %>
       <%= button_to "Add to Course", "/courses/#{@course.id}/students/#{student.id}", method: "patch", class: 'button-class' %>
     <% end %>

@@ -1,17 +1,17 @@
 <div class="container">
-  <h1>Students Enrolled in <%= @course.title %></h1>
-  <h3> Taught by: <%= @course.teacher.full_name %>
+  <h1>Students Enrolled in <%= link_to "#{@course.title}", course_path(@course) %></h1>
+  <h3> Taught by: <%= link_to "#{@course.teacher.full_name}", teacher_path(@course.teacher) %>
 
   <table>
     <tr>
-      <th>Last Name</th>
-      <th>First Name</th>
-      <th>Grade Level</th>
-      <th>GPA</th>
-      <th>Email</th>
-      <th>Number of Detentions</th>
-      <th>Gender</th>
-      <th>Shirt Size</th>
+      <th>Last Name </th>
+      <th>First Name </th>
+      <th>Grade Level </th>
+      <th>GPA </th>
+      <th>Email </th>
+      <th>Number of Detentions </th>
+      <th>Gender </th>
+      <th>Shirt Size </th>
     </tr>
   <% @students.each do |student| %>
     <tr>

@@ -18,10 +18,10 @@ Rails.application.routes.draw do
   #route to see all students currently enrolled in course
   get '/courses/:course_id/students', to: 'courses#students_show'
 
+  patch '/courses/:course_id/students/:student_id/remove', to: 'courses#students_remove'
   #route after clicking 'add to course' change student's course_id
   patch '/courses/:course_id/students/:student_id', to: 'courses#students_update'
 
-  delete '/courses/:course_id/students/:student_id', to: 'courses#students_destroy'
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
